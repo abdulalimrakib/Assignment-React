@@ -1,15 +1,17 @@
-import React from 'react';
+
 import PropTypes from 'prop-types';
 
 import User from './User';
 
 const Users = (props) => {
   return (
-    <section className="users">
-      {props.users.map((user) => (
-        <User key={user.id} {...user} />
-      ))}
-    </section>
+    <div className='flex justify-center'>
+      <section className="grid grid-cols-4 gap-5">
+        {props.users.map((user) => (
+          <User key={user.id} {...user} />
+        ))}
+      </section>
+    </div>
   );
 };
 
