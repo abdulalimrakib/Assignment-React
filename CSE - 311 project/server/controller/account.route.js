@@ -119,7 +119,7 @@ router.post("/new", async (req, res) => {
       responseData.message = MSG_SIGNUP_SUCCESS;
     }
   } catch (error) {
-    responseData.message = error.message;
+    responseData.message = error;
   } finally {
     res.json(responseData);
   }
