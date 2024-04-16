@@ -1,11 +1,10 @@
 const database = require("../config/DBConfig")
 
 const createApplication = async (applicationData) => {
-  const query = `INSERT INTO Application (jid, uid, status, message) 
+  const query = `INSERT INTO Application (jid, uid, message) 
       VALUES (
         '${applicationData.jid}', 
         '${applicationData.uid}',
-        '${applicationData.status}',
         '${applicationData.message}'
       )
     `;

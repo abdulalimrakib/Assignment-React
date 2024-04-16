@@ -15,7 +15,7 @@ database.connect((err) => {
             uid INT NOT NULL UNIQUE,
             name VARCHAR(255) NOT NULL,
             mobile BIGINT NOT NULL,
-            role INT NOT NULL,
+            role VARCHAR(50) NOT NULL,
             address VARCHAR(600) NOT NULL,
             FOREIGN KEY (uid) REFERENCES Account(uid)
           )`;
@@ -31,7 +31,6 @@ database.connect((err) => {
     const createRecruiterTableQuery = `CREATE TABLE IF NOT EXISTS Recruiter(
             uid INT NOT NULL UNIQUE,
             position VARCHAR(255) NOT NULL,
-            status INT NOT NULL,
             company VARCHAR(255) NOT NULL,
             FOREIGN KEY (uid) REFERENCES Account(uid)
           )`;
@@ -42,7 +41,9 @@ database.connect((err) => {
             title VARCHAR(255) NOT NULL,
             description VARCHAR(600) NOT NULL,
             location VARCHAR(600) NOT NULL,
-            tag VARCHAR(255) NOT NULL,
+            salaryFrom int DEFAULT null,
+            salaryTo int DEFAULT null,
+            expired BOOL DEFAULT false,
             PRIMARY KEY (jid),
             FOREIGN KEY (addedBy) REFERENCES Account(uid)
           )`;
@@ -51,7 +52,6 @@ database.connect((err) => {
             id INT AUTO_INCREMENT NOT NULL,
             jid INT NOT NULL,
             uid INT NOT NULL,
-            status INT NOT NULL,
             message VARCHAR(1200),
             PRIMARY KEY (id),
             FOREIGN KEY (uid) REFERENCES Account(uid),

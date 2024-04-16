@@ -1,11 +1,10 @@
 const database = require("../config/DBConfig");
 
 const createRecruiter = async (recruiterData) => {
-  const query = `INSERT INTO Recruiter (uid, position, status, company) 
+  const query = `INSERT INTO Recruiter (uid, position, company) 
       VALUES (
         '${recruiterData.uid}', 
         '${recruiterData.position}',
-        '${recruiterData.status}',
         '${recruiterData.company}'
       )
     `;

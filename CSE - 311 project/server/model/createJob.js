@@ -1,23 +1,25 @@
 const database = require("../config/DBConfig");
 
 const createJob = async (jobData) => {
-  const query = `INSERT INTO Job (addedBy, title, description, location, tag) 
+  const query = `INSERT INTO Job (addedBy, title, description, location, salaryFrom, salaryTo, expired) 
       VALUES (
         '${jobData.addedBy}', 
         '${jobData.title}',
         '${jobData.description}',
         '${jobData.location}',
-        '${jobData.tag}'
+        '${jobData.salaryFrom}',
+        '${jobData.salaryTo}',
+        '${jobData.expired}'
       )
     `;
-  const jid = await new Promise((resolve) => {
+  const job = await new Promise((resolve) => {
     database.query(query, (error, result) => {
       if (error) throw error;
       // id = result.insertId;
-      resolve(result.insertId);
+      resolve(result);
     });
   });
-  return jid;
+  return job;
 };
 
 module.exports = createJob;
