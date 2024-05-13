@@ -7,6 +7,7 @@
   </head>
   <body style="background-color: #f4f4f4">
     <form
+      onsubmit="login(event)"
       style="
         width: 400px;
         background-color: #fff;
@@ -20,9 +21,10 @@
     >
       <h2 style="text-align: center">Login Form</h2>
       <div style="width: 100%">
-        <p style="margin-bottom: 2px">Username:</p>
+        <p style="margin-bottom: 2px">Email:</p>
         <input
-          type="text"
+          type="email"
+          id="email"
           style="
             display: block;
             border-color: #ccc;
@@ -37,6 +39,7 @@
         <p style="margin-bottom: 2px; margin-top: 10px">Password:</p>
         <input
           type="password"
+          id="password"
           style="
             display: block;
             border-color: #ccc;
@@ -81,5 +84,6 @@
         </div>
       </div>
     </form>
+    <script src="./login.js"></script>
   </body>
 </html>
